@@ -23,6 +23,8 @@ jobs:
       - name: version
         id: version
         run: |
+          version=$(head -n 1 < version.txt | tr -d '\n')
+          echo "::set-output name=version::${version}"
 
       - name: tag check
         run: |
