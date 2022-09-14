@@ -6,6 +6,7 @@ export
 
 .PHONY: license
 license:
+	go mod tidy
 	rm -rf "${LICENSES_DIR}"
 	mkdir -p "${LICENSES_DIR}"
 	go-licenses save . --force --save_path "${LICENSES_DIR}" --alsologtostderr
