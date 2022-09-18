@@ -1,4 +1,4 @@
-name: Release Drafter (autolabeler)
+name: CI for main
 
 on:
   workflow_dispatch:
@@ -14,25 +14,11 @@ permissions:
   contents: read
 
 jobs:
-  autolabel:
+  version_tag:
     permissions:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      #############
-      # autolabel #
-      #############
-
-      - uses: release-drafter/release-drafter@v5
-        with:
-          config-name: release-drafter-autolabel.yml
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      #####################
-      # check version tag #
-      #####################
-
       - name: Checkout
         uses: actions/checkout@v3
         with:
