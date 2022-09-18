@@ -1,9 +1,10 @@
-name: Release Drafter (autolabeler & check release tag)
+name: autolabeler
 
 on:
   workflow_dispatch:
   pull_request:
     branches:
+      - main
       - release/*
     types:
       - opened
